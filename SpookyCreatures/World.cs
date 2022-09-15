@@ -131,6 +131,9 @@ namespace SpookyCreatures
             WriteLine("> Eat ");
             WriteLine("> Sleep ");
             WriteLine("> Scare ");
+            WriteLine("> Attack ");
+            WriteLine("> Exit ");
+
             WriteLine();
             Write("Enter Your Selection: ");
             string selection = ReadLine().ToLower();
@@ -138,14 +141,29 @@ namespace SpookyCreatures
             switch (selection)
             {
                 case "eat":
-                    //monster.Eat();
+                    monster.Eat();
+                    Clear();
+                    MonsterMoves(monster);
                     break;
                 case "sleep":
-                //monster.Sleep();
+                    monster.Sleep();
+                    MonsterMoves(monster);
+                    break;
                 case "scare":
-                    //monster.Scare();
+                    monster.Scare();
+                    MonsterMoves(monster);
+                    break;
+                case "attack":
+                    monster.Attack();
+                    MonsterMoves(monster);
+                    break;
+                case "exit":
+                    Environment.Exit(0);
                     break;
                 default:
+                    WriteLine("Invalid Selection Try Again. ");
+                    ReadLine();
+                    MonsterMoves(monster);
                     break;
             }
             Environment.Exit(0);

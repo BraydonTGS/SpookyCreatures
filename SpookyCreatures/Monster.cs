@@ -29,10 +29,38 @@ namespace SpookyCreatures
             Hungry = true;
 
         }
+        // Getters // 
 
         public string GetName()
         {
             return MonsterName;
+        }
+
+        // Methods // 
+        public void Eat()
+        {
+            WriteLine($"> {GetName()} is eating... ");
+            Console.ReadLine();
+            Hungry = false;
+        }
+        public void Sleep()
+        {
+            WriteLine($"> {GetName()} is sleeping zzzz ");
+            Console.ReadLine();
+            IsAwake = false;
+        }
+        public void Scare()
+        {
+            WriteLine($"> BOOOOOOOOOOOOOOOOOOOO!!!!!");
+            Console.ReadLine();
+
+        }
+        public void Attack()
+        {
+            WriteLine($"> {MonsterName} lashes forward!!!");
+            Health -= 10;
+            Console.ReadLine();
+
         }
 
     }
