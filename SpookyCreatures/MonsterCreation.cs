@@ -82,9 +82,6 @@ namespace SpookyCreatures
             return newMonster;
         }
 
-
-
-
     }
 }
 

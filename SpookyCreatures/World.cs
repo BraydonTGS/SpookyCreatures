@@ -76,7 +76,7 @@ namespace SpookyCreatures
 
             WriteLine("Enter The Following...");
             WriteLine();
-            Write("> Name: ");
+            Write("> Enter a Name: ");
             string monsternName = MonsterCreation.InputName();
             WriteLine();
             Write("> Number of Heads: ");
@@ -126,8 +126,29 @@ namespace SpookyCreatures
  \( `   <.,../`     `-.._   _,-`");
 
             WriteLine();
-            WriteLine($"{monster.GetName()}is approaching ... ");
-            ReadKey();
+            WriteLine("What Would you like to do? ");
+            WriteLine();
+            WriteLine("> Eat ");
+            WriteLine("> Sleep ");
+            WriteLine("> Scare ");
+            WriteLine();
+            Write("Enter Your Selection: ");
+            string selection = ReadLine().ToLower();
+
+            switch (selection)
+            {
+                case "eat":
+                    //monster.Eat();
+                    break;
+                case "sleep":
+                //monster.Sleep();
+                case "scare":
+                    //monster.Scare();
+                    break;
+                default:
+                    break;
+            }
+            Environment.Exit(0);
 
         }
 
