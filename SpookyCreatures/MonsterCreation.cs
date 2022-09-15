@@ -13,68 +13,55 @@ namespace SpookyCreatures
         // Heads //
         public static double Heads()
         {
-            try
-            {
-                double heads = Convert.ToDouble(ReadLine());
-                return heads;
-            }
-            catch
+            double heads;
+            bool results = Double.TryParse(ReadLine(), out heads);
+            if (results == false)
             {
                 WriteLine();
                 Write("> Please Enter a Number! ");
                 return Heads();
-
             }
+            return heads;
         }
         // Eyes //
         public static double Eyes()
         {
-            try
-            {
-                double eyes = Convert.ToDouble(ReadLine());
-                return eyes;
-            }
-            catch
+            double eyes;
+            bool results = Double.TryParse(ReadLine(), out eyes);
+            if (results == false)
             {
                 WriteLine();
                 Write("> Please Enter a Number! ");
                 return Eyes();
             }
-
+            return eyes;
         }
         // Legs //
         public static double Legs()
         {
-            try
-            {
-                double legs = Convert.ToDouble(ReadLine());
-                return legs;
-            }
-            catch
+            double legs;
+            bool results = Double.TryParse(ReadLine(), out legs);
+            if (results == false)
             {
                 WriteLine();
                 Write("> Please Enter a Number! ");
                 return Legs();
             }
-
+            return legs;
         }
         // Arms //
         public static double Arms()
         {
-            try
-            {
-                double arms = Convert.ToDouble(ReadLine());
-                return arms;
-            }
-            catch
+            double arms;
+            bool results = Double.TryParse(ReadLine(), out arms);
+            if (results == false)
             {
                 WriteLine();
                 Write("> Please Enter a Number! ");
                 return Arms();
             }
-
+            return arms;
         }
-
         // Create a Monster Object //
         public static Monster CreateMonster(string name, double head, double eyes, double arms, double legs)
         {
