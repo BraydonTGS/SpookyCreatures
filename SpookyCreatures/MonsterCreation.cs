@@ -4,8 +4,6 @@ namespace SpookyCreatures
 {
     public class MonsterCreation
     {
-        // Methods for Getting User Information //
-
         // Name //
         public static string InputName()
         {

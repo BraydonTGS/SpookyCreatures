@@ -19,14 +19,13 @@ namespace SpookyCreatures
             Arms = arms;
             Legs = legs;
             IsAlive = true;
-            WriteLine();
-            Write("Its ALIVE!!!!!!! ");
         }
 
         public string GetName()
         {
             return MonsterName;
         }
+
     }
 }
 

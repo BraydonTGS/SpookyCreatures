@@ -31,13 +31,13 @@ namespace SpookyCreatures
 .,,|RIP|,.|RIP|,.,,'==========='==''=='==''=='=======',,....,,,,.,ldb
 ");
                 WriteLine("");
-                Write("Would you like to Create a Monster(Y/N)? ");
+                Write("> Would you like to Create a Monster(Y/N)? ");
                 string userAnswer = ReadLine().ToUpper();
                 switch (userAnswer)
                 {
                     case "Y":
                         userChoice = true;
-                        PrintOptions();
+                        GetUserInput();
                         break;
                     case "N":
                         userChoice = false;
@@ -53,8 +53,8 @@ namespace SpookyCreatures
 
             }
         }
-        // Print Options & User Input // 
-        public void PrintOptions()
+        // User Input // 
+        public void GetUserInput()
         {
             userChoice = false;
 
@@ -91,12 +91,43 @@ namespace SpookyCreatures
             Write("> Number of Arms: ");
             double arms = MonsterCreation.Arms();
             WriteLine();
-            Write("What a Monstrosity!!! Let's Begin ");
+            WriteLine("What a Monstrosity!!!");
             Thread.Sleep(2500);
             Monster newMonster = MonsterCreation.CreateMonster(monsternName, heads, eyes, legs, arms);
-            WriteLine(newMonster.GetName());
+            MonsterMoves(newMonster);
             ReadKey();
+        }
 
+        public void MonsterMoves(Monster monster)
+        {
+            Clear();
+            WriteLine(@"                                  ,--,  ,.-.
+               ,                   \,       '-,-`,'-.' | ._
+              /|           \    ,   |\         }  )/  / `-,',
+              [ ,          |\  /|   | |        /  \|  |/`  ,`
+              | |       ,.`  `,` `, | |  _,...(   (      .',
+              \  \  __ ,-` `  ,  , `/ |,'      Y     (   /_L\
+               \  \_\,``,   ` , ,  /  |         )         _,/
+                \  '  `  ,_ _`_,-,<._.<        /         /
+                 ', `>.,`  `  `   ,., |_      |         /
+                   \/`  `,   `   ,`  | /__,.-`    _,   `\
+               -,-..\  _  \  `  /  ,  / `._) _,-\`       \
+                \_,,.) /\    ` /  / ) (-,, ``    ,        |
+               ,` )  | \_\       '-`  |  `(               \
+              /  /```(   , --, ,' \   |`<`    ,            |
+             /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
+       ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
+      (-, \           ) \ ('_.-._)/ /,`    /
+      | /  `          `/ \\ V   V, /`     /
+   ,--\(        ,     <_/`\\     ||      /
+  (   ,``-     \/|         \-A.A-`|     /
+ ,>,_ )_,..(    )\          -,,_-`  _--`
+(_ \|`   _,/_  /  \_            ,--`
+ \( `   <.,../`     `-.._   _,-`");
+
+            WriteLine();
+            WriteLine($"{monster.GetName()}is approaching ... ");
+            ReadKey();
 
         }
 
