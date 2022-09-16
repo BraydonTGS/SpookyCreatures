@@ -10,58 +10,19 @@ namespace SpookyCreatures
             string? creatureName = ReadLine();
             return creatureName ?? "Monster";
         }
-        // Heads //
-        public static double Heads()
+
+        public static double GetDouble()
         {
-            double heads;
-            bool results = Double.TryParse(ReadLine(), out heads);
-            if (results == false)
+            if (Double.TryParse(ReadLine(), out var num))
             {
-                WriteLine();
-                Write("> Please Enter a Number! ");
-                return Heads();
+                return num;
             }
-            return heads;
+            WriteLine();
+            Write("> Please Enter a Number! ");
+            return GetDouble();
+
         }
-        // Eyes //
-        public static double Eyes()
-        {
-            double eyes;
-            bool results = Double.TryParse(ReadLine(), out eyes);
-            if (results == false)
-            {
-                WriteLine();
-                Write("> Please Enter a Number! ");
-                return Eyes();
-            }
-            return eyes;
-        }
-        // Legs //
-        public static double Legs()
-        {
-            double legs;
-            bool results = Double.TryParse(ReadLine(), out legs);
-            if (results == false)
-            {
-                WriteLine();
-                Write("> Please Enter a Number! ");
-                return Legs();
-            }
-            return legs;
-        }
-        // Arms //
-        public static double Arms()
-        {
-            double arms;
-            bool results = Double.TryParse(ReadLine(), out arms);
-            if (results == false)
-            {
-                WriteLine();
-                Write("> Please Enter a Number! ");
-                return Arms();
-            }
-            return arms;
-        }
+
         // Create a Monster Object //
         public static Monster CreateMonster(string name, double head, double eyes, double arms, double legs)
         {

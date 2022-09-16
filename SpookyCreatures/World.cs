@@ -42,11 +42,11 @@ namespace SpookyCreatures
                     case "N":
                         userChoice = false;
                         WriteLine();
-                        Write("See you next time!");
+                        Write("> See you next time!");
                         break;
                     default:
                         WriteLine();
-                        Write("Please Enter a Valid Choice ");
+                        Write("> Please Enter a Valid Choice ");
                         break;
                 }
                 ReadKey();
@@ -74,24 +74,24 @@ namespace SpookyCreatures
  --'                  \  \ |   /    |  |              `-
                        \uU \UU/     |  /   :F_P:");
 
-            WriteLine("Enter The Following...");
+            WriteLine("> Enter The Following...");
             WriteLine();
             Write("> Enter a Name: ");
             string monsternName = MonsterCreation.InputName();
             WriteLine();
             Write("> Number of Heads: ");
-            double heads = MonsterCreation.Heads();
+            double heads = MonsterCreation.GetDouble();
             WriteLine();
             Write("> Number of Eyes: ");
-            double eyes = MonsterCreation.Eyes();
+            double eyes = MonsterCreation.GetDouble();
             WriteLine();
             Write("> Number of Legs: ");
-            double legs = MonsterCreation.Legs();
+            double legs = MonsterCreation.GetDouble();
             WriteLine();
             Write("> Number of Arms: ");
-            double arms = MonsterCreation.Arms();
+            double arms = MonsterCreation.GetDouble();
             WriteLine();
-            WriteLine("What a Monstrosity!!!");
+            WriteLine("> What a Monstrosity!!!");
             Thread.Sleep(2500);
             Monster newMonster = MonsterCreation.CreateMonster(monsternName, heads, eyes, legs, arms);
             MonsterMoves(newMonster);
@@ -126,23 +126,23 @@ namespace SpookyCreatures
  \( `   <.,../`     `-.._   _,-`");
 
             WriteLine();
-            WriteLine("What Would you like to do? ");
+            WriteLine("> What Would you like to do? ");
             WriteLine();
             WriteLine("> Eat ");
             WriteLine("> Sleep ");
+            WriteLine("> Wake up ");
             WriteLine("> Scare ");
             WriteLine("> Attack ");
             WriteLine("> Exit ");
 
             WriteLine();
-            Write("Enter Your Selection: ");
+            Write("> Enter Your Selection: ");
             string selection = ReadLine().ToLower();
 
             switch (selection)
             {
                 case "eat":
                     monster.Eat();
-                    Clear();
                     MonsterMoves(monster);
                     break;
                 case "sleep":
@@ -153,6 +153,10 @@ namespace SpookyCreatures
                     monster.Scare();
                     MonsterMoves(monster);
                     break;
+                case "wake up":
+                    monster.WakeUp();
+                    MonsterMoves(monster);
+                    break;
                 case "attack":
                     monster.Attack();
                     MonsterMoves(monster);
@@ -161,7 +165,7 @@ namespace SpookyCreatures
                     Environment.Exit(0);
                     break;
                 default:
-                    WriteLine("Invalid Selection Try Again. ");
+                    WriteLine("> Invalid Selection Try Again. ");
                     ReadLine();
                     MonsterMoves(monster);
                     break;

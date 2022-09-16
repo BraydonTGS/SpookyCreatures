@@ -39,27 +39,99 @@ namespace SpookyCreatures
         // Methods // 
         public void Eat()
         {
-            WriteLine($"> {GetName()} is eating... ");
-            Console.ReadLine();
-            Hungry = false;
+            if (IsAwake && Hungry)
+            {
+                WriteLine();
+                Write($"> {GetName()} is eating... You are no longer hungry ");
+                ReadLine();
+                Hungry = false;
+            }
+            else if (!IsAwake)
+            {
+                WriteLine();
+                Write($"> {GetName()} is sound asleep zzzzzz. You can't eat when you are sleeping ");
+                ReadLine();
+            }
+            else if (!Hungry)
+            {
+
+                WriteLine();
+                Write("> You dont need to eat right now ");
+                ReadLine();
+            }
+
         }
         public void Sleep()
         {
-            WriteLine($"> {GetName()} is sleeping zzzz ");
-            Console.ReadLine();
-            IsAwake = false;
+            if (IsAwake)
+            {
+                WriteLine();
+                Write($"> {GetName()} is sleeping zzzz ");
+                ReadLine();
+                IsAwake = false;
+                Health += 10;
+
+            }
+            else
+            {
+                WriteLine();
+                Write("> You are already asleep! ");
+                ReadLine();
+            }
+
         }
+
+        public void WakeUp()
+        {
+            if (!IsAwake)
+            {
+                WriteLine();
+                Write($"> {GetName()} is awake! ");
+                ReadLine();
+                IsAwake = true;
+                Hungry = true;
+            }
+            else
+            {
+                WriteLine();
+                Write("> You are already awake! ");
+                ReadLine();
+            }
+
+
+        }
+
         public void Scare()
         {
-            WriteLine($"> BOOOOOOOOOOOOOOOOOOOO!!!!!");
-            Console.ReadLine();
+            if (!IsAwake)
+            {
+                WriteLine();
+                Write($"> {GetName()} is sound asleep zzzzzz. You can't scare when you are sleeping ");
+                ReadLine();
+            }
+            else if (!Hungry && IsAwake)
+            {
+                WriteLine();
+                Write($"> BOOOOOOOOOOOOOOOOOOOO!!!!!");
+                ReadLine();
+                Hungry = true;
+            }
+            else if (Hungry)
+            {
+                WriteLine();
+                Write($"> You can't scare on an empty stomach... ");
+                ReadLine();
+            }
+
+
 
         }
         public void Attack()
         {
-            WriteLine($"> {MonsterName} lashes forward!!!");
+            WriteLine();
+            Write($"> {MonsterName} lashes forward!!!");
             Health -= 10;
-            Console.ReadLine();
+            ReadLine();
 
         }
 
