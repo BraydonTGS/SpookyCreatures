@@ -42,21 +42,21 @@ namespace SpookyCreatures
             if (IsAwake && Hungry)
             {
                 WriteLine();
-                Write($"> {GetName()} is eating... You are no longer hungry ");
+                Write($"> {GetName()} is eating... You are no longer hungry. ");
                 ReadLine();
                 Hungry = false;
             }
             else if (!IsAwake)
             {
                 WriteLine();
-                Write($"> {GetName()} is sound asleep zzzzzz. You can't eat when you are sleeping ");
+                Write($"> {GetName()} is sound asleep zzzzzz. You can't eat when you are sleeping. ");
                 ReadLine();
             }
             else if (!Hungry)
             {
 
                 WriteLine();
-                Write("> You dont need to eat right now ");
+                Write($"> {GetName()} is not hungry right now. ");
                 ReadLine();
             }
 
@@ -75,7 +75,7 @@ namespace SpookyCreatures
             else
             {
                 WriteLine();
-                Write("> You are already asleep! ");
+                Write($"> {GetName()} is already asleep zzzz ");
                 ReadLine();
             }
 
@@ -94,11 +94,9 @@ namespace SpookyCreatures
             else
             {
                 WriteLine();
-                Write("> You are already awake! ");
+                Write($"> {GetName()} is already awake! ");
                 ReadLine();
             }
-
-
         }
 
         public void Scare()
@@ -106,7 +104,7 @@ namespace SpookyCreatures
             if (!IsAwake)
             {
                 WriteLine();
-                Write($"> {GetName()} is sound asleep zzzzzz. You can't scare when you are sleeping ");
+                Write($"> {GetName()} is sound asleep zzzzzz. You can't scare when you are sleeping. ");
                 ReadLine();
             }
             else if (!Hungry && IsAwake)
@@ -119,17 +117,15 @@ namespace SpookyCreatures
             else if (Hungry)
             {
                 WriteLine();
-                Write($"> You can't scare on an empty stomach... ");
+                Write($"> {GetName()} can't scare on an empty stomach... ");
                 ReadLine();
             }
-
-
 
         }
         public void Attack()
         {
             WriteLine();
-            Write($"> {MonsterName} lashes forward!!!");
+            Write($"> {GetName()} lashes forward!!!");
             Health -= 10;
             ReadLine();
 

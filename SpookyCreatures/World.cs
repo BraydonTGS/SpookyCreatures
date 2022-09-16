@@ -59,21 +59,20 @@ namespace SpookyCreatures
             userChoice = false;
 
             Clear();
-            WriteLine(@"            _.------.                        .----.__
-           /         \_.       ._           /---.__  \
-          |  O    O   |\\___  //|          /       `\ |
-          |  .vvvvv.  | )   `(/ |         | o     o  \|
-          /  |     |  |/      \ |  /|   ./| .vvvvv.  |\
-         /   `^^^^^'  / _   _  `|_ ||  / /| |     |  | \
-       ./  /|         | O)  O   ) \|| //' | `^vvvv'  |/\\
-      /   / |         \        /  | | ~   \          |  \\
-      \  /  |        / \ Y   /'   | \     |          |   ~
-       `'   |  _     |  `._/' |   |  \     7        /
-         _.-'-' `-'-'|  |`-._/   /    \ _ /    .    |
-    __.-'            \  \   .   / \_.  \ -|_/\/ `--.|_
- --'                  \  \ |   /    |  |              `-
-                       \uU \UU/     |  /   :F_P:");
+            WriteLine();
+            WriteLine(@"          (
+           )  )
+       ______(____
+      (___________)
+       /         \
+      /           \
+     |             |
+ ____\             /____
+()____'.__     __.'____()
+jgs  .'` .'```'. `-.
+    ().'`       `'.()
 
+");
             WriteLine("> Enter The Following...");
             WriteLine();
             Write("> Enter a Name: ");
@@ -90,12 +89,35 @@ namespace SpookyCreatures
             WriteLine();
             Write("> Number of Arms: ");
             double arms = MonsterCreation.GetDouble();
-            WriteLine();
-            WriteLine("> What a Monstrosity!!!");
-            Thread.Sleep(2500);
             Monster newMonster = MonsterCreation.CreateMonster(monsternName, heads, eyes, legs, arms);
-            MonsterMoves(newMonster);
+            WriteLine();
+            Thread.Sleep(2500);
+            Clear();
+            WriteLine(@"            _.------.                        .----.__
+           /         \_.       ._           /---.__  \
+          |  O    O   |\\___  //|          /       `\ |
+          |  .vvvvv.  | )   `(/ |         | o     o  \|
+          /  |     |  |/      \ |  /|   ./| .vvvvv.  |\
+         /   `^^^^^'  / _   _  `|_ ||  / /| |     |  | \
+       ./  /|         | O)  O   ) \|| //' | `^vvvv'  |/\\
+      /   / |         \        /  | | ~   \          |  \\
+      \  /  |        / \ Y   /'   | \     |          |   ~
+       `'   |  _     |  `._/' |   |  \     7        /
+         _.-'-' `-'-'|  |`-._/   /    \ _ /    .    |
+    __.-'            \  \   .   / \_.  \ -|_/\/ `--.|_
+ --'                  \  \ |   /    |  |              `-
+                       \uU \UU/     |  /   :F_P:");
+
+            WriteLine();
+            WriteLine($"> What a Monstrosity!!!");
+            WriteLine();
+            WriteLine($"> {newMonster.GetName()} Emerges from the Cauldron!!! ");
+            WriteLine();
+            WriteLine($"> Your stomach is grumbling...");
+            WriteLine();
+            Write("> Press Enter: ");
             ReadKey();
+            MonsterMoves(newMonster);
         }
 
         public void MonsterMoves(Monster monster)

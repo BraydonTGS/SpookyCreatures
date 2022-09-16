@@ -4,7 +4,7 @@ namespace SpookyCreatures
 {
     public class MonsterCreation
     {
-        // Name //
+
         public static string InputName()
         {
             string? creatureName = ReadLine();
@@ -23,7 +23,6 @@ namespace SpookyCreatures
 
         }
 
-        // Create a Monster Object //
         public static Monster CreateMonster(string name, double head, double eyes, double arms, double legs)
         {
             Monster newMonster = new Monster(name, head, eyes, arms, legs);
