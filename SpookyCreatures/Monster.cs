@@ -15,6 +15,7 @@ namespace SpookyCreatures
         private int Level;
         private bool Hungry;
 
+
         public Monster(string name, double head, double eyes, double arms, double legs)
         {
             MonsterName = name;
@@ -29,14 +30,13 @@ namespace SpookyCreatures
             Hungry = true;
 
         }
-        // Getters // 
+
 
         public string GetName()
         {
             return MonsterName;
         }
 
-        // Methods // 
         public void Eat()
         {
             if (IsAwake && Hungry)
@@ -61,6 +61,7 @@ namespace SpookyCreatures
             }
 
         }
+
         public void Sleep()
         {
             if (IsAwake)
@@ -110,9 +111,9 @@ namespace SpookyCreatures
             else if (!Hungry && IsAwake)
             {
                 WriteLine();
-                WriteLine($"> BOOOOOOOOOOOOOOOOOOOO!!!!! That was a big scare!!!");
+                WriteLine($"> BOOOOOOOOOOOOOOOOOOOO!!!!!");
                 WriteLine();
-                Write("Your stomach starts to grumble");
+                Write("Your stomach starts to grumble ");
 
                 ReadLine();
                 Hungry = true;
@@ -125,12 +126,30 @@ namespace SpookyCreatures
             }
 
         }
+
         public void Attack()
         {
-            WriteLine();
-            Write($"> {GetName()} lashes forward!!!");
-            Health -= 10;
-            ReadLine();
+            if (!IsAwake)
+            {
+                WriteLine();
+                Write($"> {GetName()} is sound asleep zzzzzz. You can't attack when you are sleeping. ");
+                ReadLine();
+            }
+            else if (!Hungry && IsAwake)
+            {
+                WriteLine();
+                Write($"> {GetName()} lashes forward!!!");
+                ReadLine();
+                Hungry = true;
+                Health -= 10;
+            }
+            else if (Hungry)
+            {
+                WriteLine();
+                Write($"> {GetName()} can't attack on an empty stomach... ");
+                ReadLine();
+            }
+
 
         }
 
