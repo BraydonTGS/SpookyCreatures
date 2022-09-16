@@ -86,7 +86,7 @@ namespace SpookyCreatures
             if (!IsAwake)
             {
                 WriteLine();
-                Write($"> {GetName()} is awake! ");
+                Write($"> {GetName()} is awake! Your stomach starts to grumble... ");
                 ReadLine();
                 IsAwake = true;
                 Hungry = true;
@@ -110,7 +110,10 @@ namespace SpookyCreatures
             else if (!Hungry && IsAwake)
             {
                 WriteLine();
-                Write($"> BOOOOOOOOOOOOOOOOOOOO!!!!!");
+                WriteLine($"> BOOOOOOOOOOOOOOOOOOOO!!!!! That was a big scare!!!");
+                WriteLine();
+                Write("Your stomach starts to grumble");
+
                 ReadLine();
                 Hungry = true;
             }

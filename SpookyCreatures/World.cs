@@ -187,7 +187,8 @@ jgs  .'` .'```'. `-.
                     Environment.Exit(0);
                     break;
                 default:
-                    WriteLine("> Invalid Selection Try Again. ");
+                    WriteLine();
+                    Write("> Invalid Selection Try Again. ");
                     ReadLine();
                     MonsterMoves(monster);
                     break;
